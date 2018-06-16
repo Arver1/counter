@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {createStore} from './redux'
+import {createStore} from 'redux'
 
 const inititialState = {count: 0};
 
@@ -19,6 +19,18 @@ const resetAction = {type: 'RESET'}
 
 const store = createStore(reducer, inititialState)
 
+function increment(amount) {
+    return {type: 'INCREMENT', amount}
+}
+
+function decrement(amount) { //action creators
+    return {type: 'DECREMENT', amount}
+}
+
+function reset() {
+    return {type: 'RESET'}
+}
+
 class Counter extends React.Component {
 
     componentDidMount(){
@@ -26,15 +38,17 @@ class Counter extends React.Component {
     }
 
     increment() {
-        store.dispatch(incrementAction)
+        let amount = parseInt(this.refs.amount.value || 1)
+        store.dispatch(increment(amount))
     }
 
     decrement() {
-        store.dispatch(decrementAction)
+        let amount = parseInt(this.refs.amount.value || 1)
+        store.dispatch(decrement(amount))
     }
 
     reset() {
-        store.dispatch(resetAction)
+        store.dispatch(reset())
     }
     render(){
         const {count} = store.getState()
@@ -44,6 +58,7 @@ class Counter extends React.Component {
                 <span className="counter__result">{count}</span>
                 <button className="counter" onClick={() => this.reset()}><span className="counter__toggle">Res</span></button>
                 <button className="counter" onClick={() => this.increment()}><span className="counter__toggle">+</span></button>
+                <input className="counter__field" ref="amount" defaultValue="1"/>
             </div>
         )
     }

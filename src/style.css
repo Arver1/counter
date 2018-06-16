@@ -20,6 +20,7 @@ body {
     width: 90px;
     height: 50px;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .counter__toggle {
@@ -44,5 +45,17 @@ body {
     font-family: Arial, sans-serif ;
     flex-basis: 300px;
     order: -1;
+    text-align: center;
+}
+.counter__field {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: Arial, sans-serif ;
+    flex-basis: 100%;
+    margin: 0 auto;
     text-align: center;
 }
