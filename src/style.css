@@ -11,7 +11,7 @@ body {
 .rect__wrapper {
     display: flex;
     flex-wrap: wrap;
-    flex-basis: 200px;
+    flex-basis: 300px;
 }
 .counter {
     background-color: #7B54C2;
@@ -42,7 +42,7 @@ body {
     font-size: 124px;
     font-weight: bold;
     font-family: Arial, sans-serif ;
-    flex-basis: 200px;
+    flex-basis: 300px;
     order: -1;
     text-align: center;
 }
